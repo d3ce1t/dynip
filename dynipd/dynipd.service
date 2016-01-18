@@ -1,0 +1,11 @@
+[Unit]
+Description=Dynamique IP Daemon
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/dynipd/dynipd 2> /opt/dynipd/dynipd.log
+User=dynipd
+
+[Install]
+WantedBy=multi-user.target
