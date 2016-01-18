@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/opt/dynipd/dynipd 2> /opt/dynipd/dynipd.log
+ExecStart=/opt/dynipd/dynipd
 User=dynipd
 
 [Install]

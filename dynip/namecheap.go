@@ -3,8 +3,8 @@ package dynip
 import (
 	"encoding/xml"
 	"errors"
+	"fmt"
 	"io"
-	"log"
 	"net"
 	"net/http"
 	"time"
@@ -63,7 +63,7 @@ func (this *NameCheap) executeService() (exit bool) {
 	defer func() {
 		if r := recover(); r != nil {
 			err := r.(error)
-			log.Println("Error:", err)
+			fmt.Println("Error:", err)
 			exit = false
 			this.lastOpSuccess = false
 		}
@@ -72,7 +72,7 @@ func (this *NameCheap) executeService() (exit bool) {
 	// First start -> Always update domain IP on first start
 	if this.lastServiceIP == "" {
 		this.lastServiceIP = this.UpdateDomainIP()
-		log.Println("Current IP", this.lastServiceIP)
+		fmt.Println("Current IP", this.lastServiceIP)
 		this.lastOpSuccess = true
 		return false
 	}
@@ -83,7 +83,7 @@ func (this *NameCheap) executeService() (exit bool) {
 	if this.verifyNeeded == true {
 		if domainIP := this.CurrentDomainIP(); this.lastServiceIP != domainIP {
 			this.lastServiceIP = this.UpdateDomainIP()
-			log.Printf("Domain IP (%s) still didn't point to current IP (%s)", domainIP, this.lastServiceIP)
+			fmt.Printf("Domain IP (%s) still didn't point to current IP (%s)", domainIP, this.lastServiceIP)
 		} else {
 			this.verifyNeeded = false
 		}
@@ -92,9 +92,9 @@ func (this *NameCheap) executeService() (exit bool) {
 	// Track when current IP changes and update domain IP accordingly
 	if this.lastServiceIP != currentServiceIP() {
 		this.lastServiceIP = this.UpdateDomainIP()
-		log.Println("IP Changed", this.lastServiceIP)
+		fmt.Println("IP Changed", this.lastServiceIP)
 	} else if !this.lastOpSuccess {
-		log.Println("Current IP", this.lastServiceIP)
+		fmt.Println("Current IP", this.lastServiceIP)
 	}
 
 	this.lastOpSuccess = true
