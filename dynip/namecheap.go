@@ -15,6 +15,7 @@ var (
 )
 
 type NameCheap struct {
+	SubDomainName string
 	DomainName    string
 	Password      string
 	UpdatingTime  time.Duration
@@ -36,7 +37,7 @@ type NCResponse struct {
 }
 
 func (this *NameCheap) UpdateDomainIP() string {
-	new_ip, err := this.changeIp("@", this.DomainName, this.Password)
+	new_ip, err := this.changeIp(this.SubDomainName, this.DomainName, this.Password)
 	manageError(err)
 	this.verifyNeeded = this.VerifyChange
 	return new_ip

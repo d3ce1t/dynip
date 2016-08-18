@@ -1,0 +1,15 @@
+# Subdomain Name. Indicate @ for no subdomain
+subdomain_name: service
+
+# Root name for the domain you want to update. For instance, for service.peeple.es
+# the domain name would be peeple.es
+domain_name: peeple.es
+
+# API Password
+password: 2cc80a9e6f864ea9973b0d8c521e26e9
+
+# Update frequency in seconds
+update_freq_sec: 60
+
+# Tell if DNS change should be verified after being changed
+verify_change: false
