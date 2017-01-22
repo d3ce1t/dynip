@@ -1,0 +1,15 @@
+# Subdomain Name. Indicate @ for no subdomain
+subdomain_name: "@"
+
+# Root name for the domain you want to update. For instance, for service.peeple.es
+# the domain name would be peeple.es
+domain_name: example.com
+
+# API Password
+password: NAMECHEAP_PASSWORD
+
+# Update frequency in seconds
+update_freq_sec: 60
+
+# Tell if DNS change should be verified after being changed
+verify_change: false
