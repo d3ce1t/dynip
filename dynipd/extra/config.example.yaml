@@ -1,12 +1,12 @@
 # Subdomain Name. Indicate @ for no subdomain
-subdomain_name: service
+subdomain_name: "@"
 
-# Root name for the domain you want to update. For instance, for service.peeple.es
-# the domain name would be peeple.es
-domain_name: peeple.es
+# Root name for the domain you want to update. For instance, for service.example.com
+# the domain name would be example.com
+domain_name: example.com
 
 # API Password
-password: 2cc80a9e6f864ea9973b0d8c521e26e9
+password: NAMECHEAP_PASSWORD
 
 # Update frequency in seconds
 update_freq_sec: 60
